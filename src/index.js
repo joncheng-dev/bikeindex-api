@@ -16,7 +16,7 @@ $(document).ready(function () {
   function clearFields() {
     $("#location").val("");
     $("#distance").val("");
-    $("#showResults").html("");
+    $(".showResults").empty();
   }
 
   function apiCall(location, distance) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
   }
 
   function getElements(response) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < response.bikes.length; i++) {
       // Row 1: Number / Title of Post
       let title = `<h4>${i + 1}. ${response.bikes[i].title}</h4>`;
       $(".showResults").append(`<br><div class="row">${title}</div>`);
